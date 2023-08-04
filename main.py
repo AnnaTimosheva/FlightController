@@ -133,6 +133,7 @@ i2c1_module = busio.I2C(scl=board.IO2, sda=board.IO3)
 bmp280      = BMP280.Adafruit_BMP280_I2C(i2c1_module, BMP280._BMP280_ADDRESS)   #Initializing barometer BMP280
 bmp280.sea_level_pressure = 101.325 #kPa
 ZeroHeight = 54.046  ####ATTENTION: Set zero height of your area in this variable or use bmp280.altitude()####
+StartAlt = ZeroHeight
 file = open("/sd/"+my_file2, "a")
 file.write(f"Высота старта: {ZeroHeight} м над уровнем моря\n")
 file.close()
@@ -397,10 +398,10 @@ while button.value != 0:
                 file.close()
 
 #Do this to detect approximate time of finish
-    if abs(bmp280.altitude() - ZeroHeight) < 10.0:
+    if abs(bmp280.altitude() - StartAlt) < 10.0:
         end_ = time.monotonic()
         end_time = (end_ - ready_) + 0.5
-        ZeroHeight = 1000000000000000.0
+        StartAlt = 1000000000000000.0
 
 
 #Return servo in zero position
