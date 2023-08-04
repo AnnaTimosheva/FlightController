@@ -214,7 +214,7 @@ time.sleep(2)   #ATTENTION: this is a delay for engine work. Telemetry data may 
     #acc_m = math.sqrt(acc[0]*acc[0]+ acc[1]*acc[1]+ acc[2]*acc[2])
     #gyro_m = math.sqrt(gyro[0]*gyro[0]+ gyro[1]*gyro[1]+ gyro[2]*gyro[2])    
     #file = open("/sd/"+my_file1, "a")
-    #file.write(f"{temp} {acc[0]} {acc[1]} {acc[2]} {acc_m} {velocity} {gyro[0]} {gyro[1]} {gyro[2]} {gyro_m}\n ") 
+    #file.write(f"{temp} {acc[0]} {acc[1]} {acc[2]} {acc_m} {gyro[0]} {gyro[1]} {gyro[2]} {gyro_m}\n ") 
     #file.close()
     #if gnss.has_fix:
             # gnss.update()
